@@ -1,10 +1,15 @@
-import axios from "axios";
+import axios from "./customize-axios";
 
-function UserServices() {
+function UserServices(page) {
     return ( 
-        axios.get("https://reqres.in/api/users?page=1")
+        axios.get(`/api/users?page=${page}`)
         
      );
 }
 
-export  {UserServices};
+function postCreateUser(name,job) {
+    return axios.post('/api/users',{name,job});
+}
+
+
+export  {UserServices,postCreateUser};
